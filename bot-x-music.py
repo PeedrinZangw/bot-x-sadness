@@ -10,24 +10,24 @@ players = {}
 @client.event
 async def on_ready():
     print('sadness 01 - Online!')
-    await client.change_presence(game=discord.Game(name='XXXTENTACION - 24/7 [BOT SADNESS 01]'))
+             await client.change_presence(game=discord.Game(name='XXXTENTACION - 24/7 [BOT SADNESS 01]'))
 
 @client.command(pass_context=True)
 async def join(ctx):
-    channel = ctx.message.author.voice.voice_channel
-    await client.join_voice_channel(channel)
+        channel = ctx.message.author.voice.voice_channel
+             await client.join_voice_channel(channel)
 
 @client.command(pass_context=True)
 async def leave(ctx):
-    server = ctx.message.server
-    voice_client = client.voice_client_in(server)
-    await voice_client.disconect()
+        server = ctx.message.server
+        voice_client = client.voice_client_in(server)
+             await voice_client.disconect()
 
 @client.command(pass_context=True)
 async def play (ctx, url):
-    server = ctx.message.server
-    voice_client = client.voice_client_in(server)
-    player = await voice_client.create_ytdl_player(url)
+        server = ctx.message.server
+        voice_client = client.voice_client_in(server)
+        player = await voice_client.create_ytdl_player(url)
     players[server.id] = player
     player.start()
 
